@@ -9,10 +9,14 @@
     async function getPersonDetails() {
       const response = await fetch('https://fakerapi.it/api/v2/persons');
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
+      // console.log(jsonResponse);
+      // document.getElementById('userData').innerHTML = jsonResponse;
+      document.getElementById('userData').innerHTML =
+        JSON.stringify(jsonResponse);
     }
   </script>
   <body>
     <button onclick="getPersonDetails()">Get Persons Details</button>
+    <div id="userData"></div>
   </body>
 </html>
