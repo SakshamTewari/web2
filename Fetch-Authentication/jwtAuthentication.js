@@ -48,8 +48,13 @@ app.get('/users', (req, res) => {
   try {
     const decoded = jwt.verify(token, jwtPassword);
     const username = decoded.username;
+
+    // return all users except this username
     res.json({
-      users: ALL_USERS,
+      users: ALL_USERS.filter((value) => {
+        if (value.username == username) return false;
+        else return true;
+      }),
     });
   } catch (err) {
     return res.status(403).json({
