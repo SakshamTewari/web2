@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter demo using HTML + JS</title>
+  </head>
+  <script>
+    function incrementCounter() {
+      const currVal = document.getElementById('counter').innerHTML;
+      console.log(currVal.split(' '));
+      const currCounter = currVal.split(' ')[1];
+      const newCounter = parseInt(currCounter) + 1;
+      document.getElementById('counter').innerHTML = 'Counter ' + newCounter;
+    }
+  </script>
+  <body>
+    <button id="counter" onclick="incrementCounter()">Counter 0</button>
+  </body>
+</html>
