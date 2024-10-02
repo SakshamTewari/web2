@@ -4,13 +4,13 @@ function Todo() {
 
     const [todos, setTodos] = useState([
         {
-            titie: 'Gym',
-            desc: '7-9',
+            title: 'Gym',
+            description: '7-9',
             completed: false,
         },
         {
-            titie: 'DSA',
-            desc: '5-6',
+            title: 'DSA',
+            description: '5-6',
             completed: false,
         }
     ]);
@@ -18,7 +18,27 @@ function Todo() {
     return (
         <div>
             {/* // {todos} // wont work as it is an array, so we need to stringify it atleast */}
-            {JSON.stringify(todos)};
+            {/* {JSON.stringify(todos)}; */}
+            {todos.map(
+                (val) => {
+                    return <TodoComponent title={val.title} description={val.description} />
+                }
+            )
+            }
+
+        </div>
+    )
+}
+
+// component
+
+// takes title, description
+
+function TodoComponent(props) {
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <h1>{props.description}</h1>
         </div>
     )
 }
