@@ -7,30 +7,30 @@
   </head>
   <body>
     <div id="counter"></div>
-  </body>
-  <script>
-    let state = {
-      count: 0,
-    };
+    <script>
+      let state = {
+        count: 0,
+      };
 
-    function buttonComponent(count) {
-      const button = document.createElement('button');
-      button.innerHTML = `Counter ${count}`;
-      button.setAttribute('onClick', onButtonPress);
-      return button;
-    }
+      function buttonComponent(count) {
+        const button = document.createElement('button');
+        button.innerHTML = `Counter ${count}`;
+        button.setAttribute('onClick', 'onButtonPress()');
+        return button;
+      }
 
-    function onButtonPress() {
-      state.count++;
+      function onButtonPress() {
+        state.count++;
+        buttonComponentReRender();
+      }
+
+      function buttonComponentReRender() {
+        document.getElementById('counter').innerHTML = '';
+        const component = buttonComponent(state.count);
+        document.getElementById('counter').appendChild(component);
+      }
+
       buttonComponentReRender();
-    }
-
-    function buttonComponentReRender() {
-      document.getElementById('counter').innerHTML = '';
-      const component = buttonComponent(state.count);
-      document.getElementById('counter').appendChild(component);
-    }
-
-    buttonComponentReRender();
-  </script>
+    </script>
+  </body>
 </html>
