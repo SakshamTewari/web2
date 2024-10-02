@@ -15,10 +15,18 @@ function Todo() {
         }
     ]);
 
+    function addTodo() {
+        setTodos([...todos, {
+            title: 'New Todo',
+            description: 'new',
+        }]);
+    }
+
     return (
         <div>
             {/* // {todos} // wont work as it is an array, so we need to stringify it atleast */}
             {/* {JSON.stringify(todos)}; */}
+            <button onClick={addTodo}>Add Todo</button>
             {todos.map(
                 (val) => {
                     return <TodoComponent title={val.title} description={val.description} />
