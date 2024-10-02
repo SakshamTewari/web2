@@ -4,14 +4,24 @@ function Counter() {
 
     let [count, setCount] = useState(0);
 
+    return (
+        <div>
+            <CustomButton count={count} setCount={setCount}></CustomButton>
+        </div>
+    )
+}
+
+// component
+function CustomButton(props) {
+
     const handleClick = () => {
-        setCount(count => count + 1);
+        props.setCount(count => count + 1);
     }
 
     return (
-        <div>
-            <button onClick={handleClick}>Counter {count}</button>
-        </div>
+        <button onClick={handleClick}>
+            Counter {props.count}
+        </button>
     )
 }
 
