@@ -18,4 +18,14 @@ app.post('/todo', (req, res) => {
   // put it in mongoDB
 });
 
-app.put('/completed', (req, res) => {});
+app.put('/completed', (req, res) => {
+  const updatePayload = req.body;
+  const parsedPayload = updateTodo.safeParse(updatePayload);
+  if (!parsedPayload.success) {
+    res.status(411).json({
+      msg: 'You sent the wrong inputs',
+    });
+    return;
+  }
+  // put it in mongoDB
+});
