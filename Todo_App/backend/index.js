@@ -1,6 +1,6 @@
-import express from 'express';
-import { createTodo, updateTodo } from './validation';
-import todo from './db';
+const express = require('express');
+const { createTodo, updateTodo } = require('./validation');
+const todo = require('./db');
 const app = express();
 
 app.use(express.json());
@@ -62,4 +62,8 @@ app.put('/completed', async (req, res) => {
   res.json({
     msg: 'Todo marked as completed',
   });
+});
+
+app.listen(3000, () => {
+  console.log('Running');
 });

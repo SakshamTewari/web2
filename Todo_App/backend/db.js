@@ -5,7 +5,7 @@
     completed: boolean
  } 
 */
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 //mongodb url
 mongoose.connect(
   'mongodb+srv://sakshamtewari3:todo@todo.ep7tx.mongodb.net/todos',
@@ -21,4 +21,4 @@ const todoSchema = mongoose.Schema({
 // Model
 const todo = mongoose.model('todos', todoSchema);
 
-export default todo;
+module.exports = { todo };

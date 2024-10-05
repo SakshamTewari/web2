@@ -1,4 +1,4 @@
-import zod from 'zod';
+const zod = require('zod');
 /*
 For POST
     {
@@ -31,4 +31,4 @@ const updateTodo = zod.object({
 //   updateTodo: updateTodo,
 // };
 
-export default { createTodo, updateTodo };
+module.exports = { createTodo, updateTodo };
