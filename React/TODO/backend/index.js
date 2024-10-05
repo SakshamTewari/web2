@@ -5,8 +5,15 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/todos', (req, res) => {});
+// GET todos
+app.get('/todos', async (req, res) => {
+  const todos = await todo.find({});
+  res.json({
+    todos,
+  });
+});
 
+// POST todos
 app.post('/todo', async (req, res) => {
   const createPayload = req.body;
   const parsedPayload = createTodo.safeParse(createPayload);
@@ -27,7 +34,8 @@ app.post('/todo', async (req, res) => {
   });
 });
 
-app.put('/completed', (req, res) => {
+// PUT todos
+app.put('/completed', async (req, res) => {
   const updatePayload = req.body;
   const parsedPayload = updateTodo.safeParse(updatePayload);
   if (!parsedPayload.success) {
@@ -37,4 +45,8 @@ app.put('/completed', (req, res) => {
     return;
   }
   // put it in mongoDB
+  await todo.find({
+    title: updatePayload.title,
+    description: updatePayload.description,
+  });
 });
