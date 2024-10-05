@@ -1,6 +1,6 @@
 const express = require('express');
 const { createTodo, updateTodo } = require('./validation');
-const todo = require('./db');
+const { todo } = require('./db');
 const app = express();
 
 app.use(express.json());
