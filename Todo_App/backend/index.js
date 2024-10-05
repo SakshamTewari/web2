@@ -1,8 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const { createTodo, updateTodo } = require('./validation');
 const { todo } = require('./db');
 const app = express();
 
+app.use(
+  cors({
+    origin: 'http://localhost:5173', //if we want to restrict which frontend can hit our backend.
+  }),
+);
 app.use(express.json());
 
 // GET todos
