@@ -45,9 +45,21 @@ app.put('/completed', async (req, res) => {
     });
     return;
   }
-  // put it in mongoDB
-  await todo.find({
-    title: updatePayload.title,
-    description: updatePayload.description,
+  // await todo.find({
+  //   title: updatePayload.title,
+  //   description: updatePayload.description,
+  // });
+
+  await todo.update(
+    {
+      _id: req.body.id,
+    },
+    {
+      completed: true,
+    },
+  );
+
+  res.json({
+    msg: 'Todo marked as completed',
   });
 });
