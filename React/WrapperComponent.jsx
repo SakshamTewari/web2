@@ -5,6 +5,7 @@ export function WrapperComponent() {
     return (
         <div>
             <CardWrapper innerComponent={<TextComponent />} />
+            <ChildreanWrapper>Hi There !</ChildreanWrapper>
         </div>
 
     )
@@ -27,3 +28,11 @@ function TextComponent() {
     )
 }
 
+
+function ChildreanWrapper({ children }) {
+    return (
+        <div style={{ border: "2px solid purple" }}>
+            {children}
+        </div>
+    )
+}
