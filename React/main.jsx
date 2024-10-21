@@ -9,6 +9,7 @@ import { UseRef } from './hooks/UseRef.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Dashboard } from './components/Dashboard.jsx'
 import { LandingPage } from './components/LandingPage.jsx'
+import { UseNavigate } from './hooks/UseNavigate.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -21,7 +22,7 @@ createRoot(document.getElementById('root')).render(
         {/* <UseRef /> */}
 
         {/* Route using window.location.href */}
-        <div>
+        {/* <div>
             <button onClick={() => {
                 console.log(window.location);
                 window.location.href = "/landing"
@@ -29,8 +30,9 @@ createRoot(document.getElementById('root')).render(
             <button onClick={() => {
                 window.location.href = "/dashboard"
             }}>Go to Dashboard Page</button>
-        </div>
+        </div> */}
         <BrowserRouter>
+            <UseNavigate />
             <Routes>
                 <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/landing' element={<LandingPage />} />
