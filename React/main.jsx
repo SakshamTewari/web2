@@ -18,7 +18,18 @@ createRoot(document.getElementById('root')).render(
         {/* <UseEffectHook /> */}
         {/* <UseMemoHook /> */}
         {/* <UseCallback /> */}
-        <UseRef />
+        {/* <UseRef /> */}
+
+        {/* Route using window.location.href */}
+        <div>
+            <button onClick={() => {
+                console.log(window.location);
+                window.location.href = "/landing"
+            }}>Go to Landing Page</button>
+            <button onClick={() => {
+                window.location.href = "/dashboard"
+            }}>Go to Dashboard Page</button>
+        </div>
         <BrowserRouter>
             <Routes>
                 <Route path='/dashboard' element={<Dashboard />} />
