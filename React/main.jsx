@@ -7,9 +7,11 @@ import { UseMemoHook } from './hooks/UseMemoHook.jsx'
 import { UseCallback } from './hooks/UseCallback.jsx'
 import { UseRef } from './hooks/UseRef.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Dashboard } from './components/Dashboard.jsx'
+// import { Dashboard } from './components/Dashboard.jsx'   using default export to support lazy loading
 import { LandingPage } from './components/LandingPage.jsx'
 import { UseNavigate } from './hooks/UseNavigate.jsx'
+
+const Dashboard = React.lazy(() => import('./components/Dashboard.jsx'));
 
 
 createRoot(document.getElementById('root')).render(
