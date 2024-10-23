@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { MinimizeReRender } from './MinimizeReRender.jsx'
 import { WrapperComponent } from './WrapperComponent.jsx'
@@ -11,7 +11,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { LandingPage } from './components/LandingPage.jsx'
 import { UseNavigate } from './hooks/UseNavigate.jsx'
 
-const Dashboard = React.lazy(() => import('./components/Dashboard.jsx'));
+const Dashboard = lazy(() => import('./components/Dashboard.jsx'));
 
 
 createRoot(document.getElementById('root')).render(
@@ -24,7 +24,8 @@ createRoot(document.getElementById('root')).render(
         {/* <UseRef /> */}
 
         {/* Route using window.location.href */}
-        {/* <div>
+        {/* 
+        <div>
             <button onClick={() => {
                 console.log(window.location);
                 window.location.href = "/landing"
@@ -32,12 +33,21 @@ createRoot(document.getElementById('root')).render(
             <button onClick={() => {
                 window.location.href = "/dashboard"
             }}>Go to Dashboard Page</button>
-        </div> */}
+        </div> 
+        */}
+
+
+
+        {/* 
+        Suspense API , that react provides, is used to fetch asynchronous components
+        Asynchronous components are nothing but the Lazy Loaded components, whose .jsx file is sent only when used
+        As it takes few seconds to get the .jsx file (check it in the Network), we use Suspense wrapper
+        */}
         <BrowserRouter>
             <UseNavigate />
             <Routes>
-                <Route path='/dashboard' element={<Dashboard />} />
-                <Route path='/landing' element={<LandingPage />} />
+                <Route path='/dashboard' element={<Suspense fallback={"loading..."}><Dashboard /></Suspense>} />
+                <Route path='/landing' element={<Suspense fallback={"loading..."}><LandingPage /></Suspense>} />
             </Routes>
         </BrowserRouter>
     </StrictMode>,
