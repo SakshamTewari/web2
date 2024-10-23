@@ -13,5 +13,8 @@ export function UseNavigate() {
         <button onClick={() => {
             navigate('/landing');
         }}>Landing Page</button>
+        <button onClick={() => {
+            navigate('/dashboard');
+        }}>Dashboard Page</button>
     </div>
 }
