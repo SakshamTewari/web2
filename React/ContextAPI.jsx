@@ -1,29 +1,41 @@
-import { disconnect, set } from "mongoose";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CountContext } from "./context";
 
-function ContextAPI() {
+export function ContextAPI() {
 
     const [count, setCount] = useState(0);
 
+    //wrap anyone that wants to use the teleported value inside a provider
+    return (
+        <div>
+            <CountContext.Provider value={count}>
+                {/* <Count count={count} setCount={setCount} /> */}
+                <Count setCount={setCount} />    {/* count value is passed via provider */}
+            </CountContext.Provider>
+        </div>
+    )
+}
+
+function Count({ setCount }) {
     return <div>
-        <Count count={count} setCount={setCount} />
+        <CountRenderer />
+        <Buttons setCount={setCount} />
     </div>
 }
 
-function Count({ count, setCount }) {
-    return <div>
-        <CountRenderer count={count} />
-        <Buttons count={count} setCount={setCount} />
-    </div>
-}
+function CountRenderer() {
 
-function CountRenderer({ count }) {
+    // using 'count' value using CountContext provider
+    const count = useContext(CountContext);
     return <div>
         {count}
     </div>
 }
 
-function Buttons({ count, setCount }) {
+function Buttons({ setCount }) {
+
+    // using 'count' value using CountContext provider
+    const count = useContext(CountContext);
     return <div>
         <button onClick={() => setCount(count + 1)}>Increment</button>
         <button onClick={() => setCount(count - 1)}>Decrement</button>
