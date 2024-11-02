@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // import { Dashboard } from './components/Dashboard.jsx'   using default export to support lazy loading
 import { LandingPage } from './components/LandingPage.jsx'
 import { UseNavigate } from './hooks/UseNavigate.jsx'
+import { ContextAPI } from './ContextAPI.jsx'
 
 const Dashboard = lazy(() => import('./components/Dashboard.jsx'));
 
@@ -43,6 +44,7 @@ createRoot(document.getElementById('root')).render(
         Asynchronous components are nothing but the Lazy Loaded components, whose .jsx file is sent only when used
         As it takes few seconds to get the .jsx file (check it in the Network), we use Suspense wrapper
         */}
+        <ContextAPI></ContextAPI>
         <BrowserRouter>
             <UseNavigate />
             <Routes>
