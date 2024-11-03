@@ -1,6 +1,6 @@
 // Same code as ContextAPI, but with 'Recoil' logic
 
-import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
+import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { countAtom } from "./store/atoms/count";
 
 // just like the Context Provider, use RecoilRoot to wrap everything that uses 'atom'
@@ -34,9 +34,14 @@ function CountRenderer() {
 }
 
 function Buttons() {
-    const [count, setCount] = useRecoilState(countAtom);
+    // useRecoilState => to get values like useState
+    // const [count, setCount] = useRecoilState(countAtom);
+
+    // but as Buttons component do not need 'count' also, only setCount, so we will use another hook
+    // onClick={() => setCount(count + 1)} will change to onClick={() => setCount(count => count + 1)}
+    const setCount = useSetRecoilState(countAtom);
     return <div>
-        <button onClick={() => setCount(count + 1)}>Increment</button>
-        <button onClick={() => setCount(count - 1)}>Decrement</button>
+        <button onClick={() => setCount(count => count + 1)}>Increment</button>
+        <button onClick={() => setCount(count => count + 1)}>Decrement</button>
     </div>
 }
