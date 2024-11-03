@@ -1,3 +1,5 @@
+// DOESN'T HELP WITH RE-RENDERING , ONLY HELPS GET RID OF PROP DRILLING (UGLY)
+
 import { useContext, useState } from "react";
 import { CountContext } from "./context";
 
