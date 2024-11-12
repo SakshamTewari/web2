@@ -11,15 +11,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { LandingPage } from './components/LandingPage.jsx'
 import { UseNavigate } from './hooks/UseNavigate.jsx'
 import { ContextAPI } from './ContextAPI.jsx'
+import { Recoil } from './Recoil.jsx'
 
 const Dashboard = lazy(() => import('./components/Dashboard.jsx'));
 
 
 createRoot(document.getElementById('root')).render(
-    <StrictMode>
+    <>
         {/* <MinimizeReRender /> */}
         {/* <WrapperComponent /> */}
-        {/* <UseEffectHook /> */}
+        <UseEffectHook />
         {/* <UseMemoHook /> */}
         {/* <UseCallback /> */}
         {/* <UseRef /> */}
@@ -44,13 +45,14 @@ createRoot(document.getElementById('root')).render(
         Asynchronous components are nothing but the Lazy Loaded components, whose .jsx file is sent only when used
         As it takes few seconds to get the .jsx file (check it in the Network), we use Suspense wrapper
         */}
-        <ContextAPI></ContextAPI>
-        <BrowserRouter>
+        {/* <ContextAPI></ContextAPI> */}
+        {/* <BrowserRouter>
             <UseNavigate />
             <Routes>
                 <Route path='/dashboard' element={<Suspense fallback={"loading..."}><Dashboard /></Suspense>} />
                 <Route path='/landing' element={<Suspense fallback={"loading..."}><LandingPage /></Suspense>} />
             </Routes>
-        </BrowserRouter>
-    </StrictMode>,
+        </BrowserRouter> */}
+        {/* <Recoil /> */}
+    </>
 )
