@@ -38,3 +38,28 @@ function Todos({ title, completed, id }) {
         </div>
     )
 }
+
+/*
+    useEffect can return a function
+    -------------------------------
+
+    once the dependency changes, it will first console.log("unmounted") as it will do the cleanup activity first from the last dependency
+    then "mounted" will be logged.
+
+    But initially on 1st dependency, "mounted" will be logged as there is no previous dependency.
+*/
+
+function MyComponent() {
+
+    useEffect(() => {
+        console.log("mounted");
+
+        return () => {
+            console.log("unmounted");
+        }
+    }, []);
+
+    return <div>
+        Component rendered
+    </div>
+}
