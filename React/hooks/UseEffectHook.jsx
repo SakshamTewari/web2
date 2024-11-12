@@ -4,6 +4,7 @@ export function UseEffectHook() {
 
     const [todos, setTodos] = useState({});
     const [count, setCount] = useState(1);
+    const [render, setRender] = useState(true);
 
 
     useEffect(() => {
@@ -16,6 +17,12 @@ export function UseEffectHook() {
             })
     }, [count]);
 
+    useEffect(() => {
+        setTimeout(() => {
+            setRender(false);
+        }, 10000);
+    }, []);
+
     function updateCount() {
         setCount(Math.floor(Math.random() * 100));
     }
@@ -24,6 +31,7 @@ export function UseEffectHook() {
         <div>
             <button onClick={updateCount}>Update Todos</button>
             <Todos title={todos.title} completed={todos.completed} id={todos.id} />
+            {render ? <MyComponent /> : ""}
         </div>
     )
 }
