@@ -5,7 +5,7 @@ export function CustomUseTodos() {
 
     return (
         <>
-            {loading ? "Loading..." : todos}
+            {loading ? "Loading..." : todos.title}
         </>
     )
 
@@ -26,6 +26,7 @@ export function useTodos() {
             fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
                 .then(async (res) => {
                     const json = await res.json();
+                    console.log("JSON: ", json.title);
                     setTodos(json);
                     setLoading(false);
                 })
