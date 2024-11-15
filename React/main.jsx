@@ -12,6 +12,7 @@ import { LandingPage } from './components/LandingPage.jsx'
 import { UseNavigate } from './hooks/UseNavigate.jsx'
 import { ContextAPI } from './ContextAPI.jsx'
 import { Recoil } from './Recoil.jsx'
+import { CustomUseTodos } from './hooks/custom-hooks/CustomUseTodos.jsx'
 
 const Dashboard = lazy(() => import('./components/Dashboard.jsx'));
 
@@ -20,7 +21,7 @@ createRoot(document.getElementById('root')).render(
     <>
         {/* <MinimizeReRender /> */}
         {/* <WrapperComponent /> */}
-        <UseEffectHook />
+        {/* <UseEffectHook /> */}
         {/* <UseMemoHook /> */}
         {/* <UseCallback /> */}
         {/* <UseRef /> */}
@@ -54,5 +55,6 @@ createRoot(document.getElementById('root')).render(
             </Routes>
         </BrowserRouter> */}
         {/* <Recoil /> */}
+        <CustomUseTodos />
     </>
 )

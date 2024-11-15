@@ -21,6 +21,13 @@ export function UseEffectHook() {
         setTimeout(() => {
             setRender(false);
         }, 10000);
+        /*
+        To keep mounting and unmounting the component
+
+        setInterval(()=>{
+            setRender(r => !r)
+            }, 10000)
+        */
     }, []);
 
     function updateCount() {
