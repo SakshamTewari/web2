@@ -15,6 +15,6 @@ This helps in not creating another interface and passing it as a prop
 // allow user to update only name, age and password
 type UpdateProps = Pick<User, 'name' | 'age' | 'password'>;
 
-function updateUser(updatedProps: UpdateProps) {
+function updateUserPick(updatedProps: UpdateProps) {
   // hit the database to update the user
 }
