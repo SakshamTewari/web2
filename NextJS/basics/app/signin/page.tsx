@@ -2,7 +2,7 @@ export default function SignIn() {
   return (
     <div className='h-screen flex justify-center flex-col'>
       <div className='flex justify-center'>
-        <a href='#' className='block'>
+        <a href='#' className='block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100'>
           <div className='px-10'>
             <div className='text-3xl font-extrabold'>Signin</div>
           </div>
