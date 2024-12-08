@@ -1,3 +1,5 @@
+import { Button } from "./Button";
+
 export function Signup() {
   return (
     <div className='h-screen flex justify-center flex-col'>
@@ -19,12 +21,7 @@ export function Signup() {
               type={'password'}
               placeholder='123456'
             />
-            <button
-              type='button'
-              className='mt-8 w-full text-white bg-gray-800 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py2.5 me-2 mb-2'
-            >
-              Signup
-            </button>
+            <Button label="Signup"/>
           </div>
         </a>
       </div>
