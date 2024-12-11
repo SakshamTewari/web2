@@ -5,16 +5,18 @@ export default async function UserDetails() {
   const userDetails = await getUserData();
 
   return (
-    <div className='flex items-center justify-center bg-green-50'>
+    <div className='flex h-screen items-center justify-center bg-green-50'>
       <div className='text-center border'></div>
-      Hi, {userDetails.firstName} [{userDetails.email}]
+      {/* Hi, {userDetails.firstName} [{userDetails.email}] */}
+      Hi, {userDetails.name} [{userDetails.email}]
     </div>
   );
 }
 
 async function getUserData() {
   const response = await axios.get(
-    `https://dummyjson.com/users/${Math.floor(Math.random() * 100) + 1}`,
+    // `https://dummyjson.com/users/${Math.floor(Math.random() * 100) + 1}`,
+    'http://localhost:3000/api/user',
   );
   console.log(response.data);
   return response.data;
