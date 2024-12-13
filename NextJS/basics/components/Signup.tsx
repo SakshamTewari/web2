@@ -1,6 +1,13 @@
-import { Button } from "./Button";
+'use client';
+
+import axios from 'axios';
+import { ChangeEventHandler, useState } from 'react';
+import { Button } from './Button';
 
 export function Signup() {
+  const [username, setUsername] = useState('');
+  const [passwprd, setPassword] = useState('');
+
   return (
     <div className='h-screen flex justify-center flex-col'>
       <div className='flex justify-center'>
@@ -11,17 +18,23 @@ export function Signup() {
           <div className='px-10'>
             <div className='text-3xl font-extrabold'>Signup</div>
           </div>
-          <div>
+          <div className='pt-2'>
             <LabelledInput
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
               label='Username'
               placeholder='sakshamtewari3@gmail.com'
             />
             <LabelledInput
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
               label='Password'
               type={'password'}
               placeholder='123456'
             />
-            <Button label="Signup"/>
+            <Button label='Signup' />
           </div>
         </a>
       </div>
@@ -33,15 +46,22 @@ interface LabelledInputType {
   label: string;
   placeholder: string;
   type?: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-function LabelledInput({ label, placeholder, type }: LabelledInputType) {
+function LabelledInput({
+  label,
+  placeholder,
+  type,
+  onChange,
+}: LabelledInputType) {
   return (
     <div>
       <label className='block mb-2 text-sm text-black font-semibold pt-4'>
         {label}
       </label>
       <input
+        onChange={onChange}
         type={type || 'text'}
         id='first_name'
         className='bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
