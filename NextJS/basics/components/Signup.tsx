@@ -3,10 +3,12 @@
 import axios from 'axios';
 import { ChangeEventHandler, useState } from 'react';
 import { Button } from './Button';
+import { useRouter } from 'next/navigation';
 
 export function Signup() {
   const [username, setUsername] = useState('');
-  const [passwprd, setPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
 
   return (
     <div className='h-screen flex justify-center flex-col'>
@@ -34,7 +36,18 @@ export function Signup() {
               type={'password'}
               placeholder='123456'
             />
-            <Button label='Signup' />
+            <Button
+              onClick={async () => {
+                await axios.post('http://localhost:3000/api/user', {
+                  username,
+                  password,
+                });
+
+                // navigate the user after signup to home
+                router.push('/');
+              }}
+              label='Signup'
+            />
           </div>
         </a>
       </div>
