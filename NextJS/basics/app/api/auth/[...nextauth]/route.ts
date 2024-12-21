@@ -20,6 +20,19 @@ const handler = NextAuth({
       },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    jwt: ({ token, user }) => {
+      return token;
+    },
+    session: ({ session, token, user }: any) => {
+      console.log(session);
+      if (session && session.user) {
+        session.user.id = token.sub; // token.sub
+      }
+      return session;
+    },
+  },
 });
 
 export const GET = handler;
