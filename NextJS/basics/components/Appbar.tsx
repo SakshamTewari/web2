@@ -11,6 +11,12 @@ export function Appbar() {
   return (
     <div>
       <button
+        style={{
+          color: 'white',
+          background: 'black',
+          borderRadius: '4px',
+          padding: '4px 4px',
+        }}
         onClick={() => {
           //   router.push('/api/auth/signin');
           signIn();
