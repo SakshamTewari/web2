@@ -13,6 +13,9 @@ import { UseNavigate } from './hooks/UseNavigate.jsx'
 import { ContextAPI } from './ContextAPI.jsx'
 import { Recoil } from './Recoil.jsx'
 import { CustomUseTodos } from './hooks/custom-hooks/CustomUseTodos.jsx'
+import { CustomUseIsOnline } from './hooks/custom-hooks/CustomUseIsOnline.jsx'
+import { CustomUseMousePointer } from './hooks/custom-hooks/CustomUseMousePointer.jsx'
+import { CustomUseInterval } from './hooks/custom-hooks/CustomUseInterval.jsx'
 
 const Dashboard = lazy(() => import('./components/Dashboard.jsx'));
 
@@ -55,6 +58,9 @@ createRoot(document.getElementById('root')).render(
             </Routes>
         </BrowserRouter> */}
         {/* <Recoil /> */}
-        <CustomUseTodos />
+        {/* <CustomUseTodos /> */}
+        {/* <CustomUseIsOnline /> */}
+        {/* <CustomUseMousePointer /> */}
+        <CustomUseInterval />
     </>
 )

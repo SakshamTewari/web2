@@ -13,6 +13,8 @@ export function CustomUseInterval() {
     )
 }
 
+// hook that runs a callback function every 'n' seconds
+
 const useInterval = (fn, n) => {
 
     useEffect(() => {
